@@ -62,7 +62,6 @@ extension PasswordCriteriaView {
   
   func style() {
     translatesAutoresizingMaskIntoConstraints = false
-    backgroundColor = .systemCyan
     
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.spacing = 8

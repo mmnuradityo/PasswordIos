@@ -13,6 +13,7 @@
 		847231292BB62CFF00BAA137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847231272BB62CFF00BAA137 /* LaunchScreen.storyboard */; };
 		847231322BB687B900BAA137 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847231312BB687B900BAA137 /* PasswordTextField.swift */; };
 		847231352BB6CED500BAA137 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847231342BB6CED500BAA137 /* PasswordCriteriaView.swift */; };
+		847231372BB6DB7400BAA137 /* PassworStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847231362BB6DB7400BAA137 /* PassworStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8472312A2BB62CFF00BAA137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847231312BB687B900BAA137 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		847231342BB6CED500BAA137 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
+		847231362BB6DB7400BAA137 /* PassworStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassworStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				847231342BB6CED500BAA137 /* PasswordCriteriaView.swift */,
+				847231362BB6DB7400BAA137 /* PassworStatusView.swift */,
 			);
 			path = PasswordStatusView;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				847231212BB62CFD00BAA137 /* ViewController.swift in Sources */,
 				8472311D2BB62CFD00BAA137 /* AppDelegate.swift in Sources */,
+				847231372BB6DB7400BAA137 /* PassworStatusView.swift in Sources */,
 				847231352BB6CED500BAA137 /* PasswordCriteriaView.swift in Sources */,
 				847231322BB687B900BAA137 /* PasswordTextField.swift in Sources */,
 			);
