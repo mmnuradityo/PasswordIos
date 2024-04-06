@@ -33,6 +33,6 @@ struct PasswordCriteria {
   }
   
   static func specialCharacterMet(_ text: String) -> Bool {
-    text.range(of: "[@:?!()$#,./\\\\]+", options: .regularExpression) != nil
+    text.range(of: "[.,@:?!()$\\/#]+", options: .regularExpression) != nil
   }
 }

@@ -19,7 +19,7 @@ class PassworStatusView: UIView {
   let specialCharacterCriteriaView = PasswordCriteriaView(text: "special character (e.g. !@#$%^)")
   
   // Use to determine if we reset criteria back to empty state.
-  private var shouldResetCriteria = true
+  var shouldResetCriteria = true
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -97,22 +97,22 @@ extension PassworStatusView {
 // MARK: action
 extension PassworStatusView {
   func updateDisplay(_ text: String) {
-    let lenghtAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceCriteriaMet(text)
-    let upperCaseMet = PasswordCriteria.upperCaseCriteriaMet(text)
-    let loweCaseMet = PasswordCriteria.lowerCaseCriteriaMet(text)
+    let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceCriteriaMet(text)
+    let uppercaseMet = PasswordCriteria.upperCaseCriteriaMet(text)
+    let lowercaseMet = PasswordCriteria.lowerCaseCriteriaMet(text)
     let digitMet = PasswordCriteria.digitMet(text)
     let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
     
     if shouldResetCriteria {
-      // Inline validation
-      lenghtAndNoSpaceMet
+      // Inline validation (✅ or ⚪️)
+      lengthAndNoSpaceMet
         ? lengthCriteriaView.criteriaMet = .checkMark
         : lengthCriteriaView.reset()
-      upperCaseMet 
+      uppercaseMet 
         ? uppercaseCriteriaView.criteriaMet = .checkMark
         : uppercaseCriteriaView.reset()
       
-      loweCaseMet
+      lowercaseMet
         ? lowerCaseCriteriaView.criteriaMet = .checkMark
         : lowerCaseCriteriaView.reset()
       
@@ -123,6 +123,38 @@ extension PassworStatusView {
       specialCharacterMet
         ? specialCharacterCriteriaView.criteriaMet = .checkMark
         : specialCharacterCriteriaView.reset()
+    }  else {
+      // Focus lost (✅ or ❌)
+      lengthCriteriaView.criteriaMet = lengthAndNoSpaceMet ? .checkMark : .xMark
+      uppercaseCriteriaView.criteriaMet = uppercaseMet ? .checkMark : .xMark
+      lowerCaseCriteriaView.criteriaMet = lowercaseMet ? .checkMark : .xMark
+      digitCriteriaView.criteriaMet = digitMet ? .checkMark : .xMark
+      specialCharacterCriteriaView.criteriaMet = specialCharacterMet ? .checkMark : .xMark
+  }
+  }
+  
+  func validate(_ text: String) -> Bool {
+    let upperCaseMet = PasswordCriteria.upperCaseCriteriaMet(text)
+    let loweCaseMet = PasswordCriteria.lowerCaseCriteriaMet(text)
+    let digitMet = PasswordCriteria.digitMet(text)
+    let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
+    
+    let checkable: [Bool] = [upperCaseMet, loweCaseMet, digitMet, specialCharacterMet]
+    let metCriteria = checkable.filter { $0 == true }
+    
+    if metCriteria.count > 2 {
+      let lenghtAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceCriteriaMet(text)
+      return lenghtAndNoSpaceMet
     }
+    
+    return false
+  }
+  
+  func reset() {
+    lengthCriteriaView.reset()
+    uppercaseCriteriaView.reset()
+    lowerCaseCriteriaView.reset()
+    digitCriteriaView.reset()
+    specialCharacterCriteriaView.reset()
   }
 }
