@@ -98,8 +98,8 @@ extension PassworStatusView {
 extension PassworStatusView {
   func updateDisplay(_ text: String) {
     let lengthAndNoSpaceMet = PasswordCriteria.lengthAndNoSpaceCriteriaMet(text)
-    let uppercaseMet = PasswordCriteria.upperCaseCriteriaMet(text)
-    let lowercaseMet = PasswordCriteria.lowerCaseCriteriaMet(text)
+    let uppercaseMet = PasswordCriteria.uppercaseCriteriaMet(text)
+    let lowercaseMet = PasswordCriteria.lowercaseCriteriaMet(text)
     let digitMet = PasswordCriteria.digitMet(text)
     let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
     
@@ -134,8 +134,8 @@ extension PassworStatusView {
   }
   
   func validate(_ text: String) -> Bool {
-    let upperCaseMet = PasswordCriteria.upperCaseCriteriaMet(text)
-    let loweCaseMet = PasswordCriteria.lowerCaseCriteriaMet(text)
+    let upperCaseMet = PasswordCriteria.uppercaseCriteriaMet(text)
+    let loweCaseMet = PasswordCriteria.lowercaseCriteriaMet(text)
     let digitMet = PasswordCriteria.digitMet(text)
     let specialCharacterMet = PasswordCriteria.specialCharacterMet(text)
     

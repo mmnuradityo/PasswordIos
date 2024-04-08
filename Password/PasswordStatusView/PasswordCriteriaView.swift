@@ -100,3 +100,16 @@ extension PasswordCriteriaView {
     case reset
   }
 }
+
+// MARK: Tests
+extension PasswordCriteriaView {
+  var isCheckMarkImage: Bool {
+    return imageView.image == checkMarkImage
+  }
+  var isXmarkImage: Bool {
+    return imageView.image == xMarkImage
+  }
+  var isResetImage: Bool {
+    return imageView.image == circleImage
+  }
+}

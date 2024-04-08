@@ -8,23 +8,23 @@
 import Foundation
 
 struct PasswordCriteria {
-  static func lenghtCriteriaMet(_ text: String) -> Bool {
+  static func lengthCriteriaMet(_ text: String) -> Bool {
     text.count >= 8 && text.count <= 32
   }
   
-  static func noSpaceCriteria(_ text: String) -> Bool {
+  static func noSpaceCriteriaMet(_ text: String) -> Bool {
     text.rangeOfCharacter(from: NSCharacterSet.whitespaces) == nil
   }
   
   static func lengthAndNoSpaceCriteriaMet(_ text: String) -> Bool {
-    lenghtCriteriaMet(text) && noSpaceCriteria(text)
+    lengthCriteriaMet(text) && noSpaceCriteriaMet(text)
   }
   
-  static func upperCaseCriteriaMet(_ text: String) -> Bool {
+  static func uppercaseCriteriaMet(_ text: String) -> Bool {
     text.range(of: "[A-Z]+", options: .regularExpression) != nil
   }
   
-  static func lowerCaseCriteriaMet(_ text: String) -> Bool {
+  static func lowercaseCriteriaMet(_ text: String) -> Bool {
     text.range(of: "[a-z]+", options: .regularExpression) != nil
   }
   
